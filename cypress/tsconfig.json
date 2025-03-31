@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "lib": ["es6", "dom"],
+      "types": ["cypress"],
+      "baseUrl": "./",
+      "allowJs": true,
+      "checkJs": true
+    },
+    "include": ["cypress/**/*.js"]
+  }
+  

@@ -1,0 +1,224 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-03-31T11:40:52.397Z",
+    "end": "2025-03-31T11:40:53.515Z",
+    "duration": 1118,
+    "testsRegistered": 7,
+    "passPercent": 85.71428571428571,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fc90f26a-a369-413e-bc33-66325af324a8",
+      "title": "",
+      "fullFile": "cypress/e2e/weatherApi/currentWeather.cy.js",
+      "file": "cypress/e2e/weatherApi/currentWeather.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a59b4156-66cc-4ccd-b9ad-2b4f579561fd",
+          "title": "Current Weather API Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return correct weather data with UK postcode SW1E5JL",
+              "fullTitle": "Current Weather API Test should return correct weather data with UK postcode SW1E5JL",
+              "timedOut": null,
+              "duration": 580,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/current.json?q=SW1E5JL&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  expect(response.body.location.name).to.eq('London');\n  expect(response.body.location.region).to.eq('London');\n  expect(response.body.location.country).to.eq('UK');\n  expect(response.body.location.tz_id).to.eq('Europe/London');\n  expect(response.body).to.have.property('current');\n  expect(response.body.current.condition.text).to.eq('Sunny');\n  expect(response.body.current.temp_c).to.be.a('number');\n  expect(response.body.current.wind_dir).to.eq('ENE');\n});",
+              "err": {
+                "message": "AssertionError: expected 'Partly cloudy' to equal 'Sunny'",
+                "estack": "AssertionError: expected 'Partly cloudy' to equal 'Sunny'\n    at Context.eval (webpack://hudl_login_functionality_task/./cypress/e2e/weatherApi/currentWeather.cy.js:24:54)\n    at getRet (http://localhost:57139/__cypress/runner/cypress_runner.js:119371:20)\n    at tryCatcher (http://localhost:57139/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:57139/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:57139/__cypress/runner/cypress_runner.js:119382:66)\n    at Context.then (http://localhost:57139/__cypress/runner/cypress_runner.js:119633:21)",
+                "diff": "- 'Partly cloudy'\n+ 'Sunny'\n"
+              },
+              "uuid": "4e53b4ea-7a31-4604-81ac-1db3aff060f8",
+              "parentUUID": "a59b4156-66cc-4ccd-b9ad-2b4f579561fd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return weather data for query: 90045",
+              "fullTitle": "Current Weather API Test should return weather data for query: 90045",
+              "timedOut": null,
+              "duration": 67,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/current.json?q=${encodeURIComponent(query.q)}&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  expect(response.body).to.have.property('current');\n  expect(response.body).to.be.jsonSchema(weatherSchema);\n});",
+              "err": {},
+              "uuid": "eb8aae9c-2a73-43d3-a351-7aa567c8446b",
+              "parentUUID": "a59b4156-66cc-4ccd-b9ad-2b4f579561fd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return weather data for query: M5V2Z2",
+              "fullTitle": "Current Weather API Test should return weather data for query: M5V2Z2",
+              "timedOut": null,
+              "duration": 68,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/current.json?q=${encodeURIComponent(query.q)}&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  expect(response.body).to.have.property('current');\n  expect(response.body).to.be.jsonSchema(weatherSchema);\n});",
+              "err": {},
+              "uuid": "860f276c-0d21-4f52-962e-c4477c0aa777",
+              "parentUUID": "a59b4156-66cc-4ccd-b9ad-2b4f579561fd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return weather data for query: hampshire",
+              "fullTitle": "Current Weather API Test should return weather data for query: hampshire",
+              "timedOut": null,
+              "duration": 60,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/current.json?q=${encodeURIComponent(query.q)}&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  expect(response.body).to.have.property('current');\n  expect(response.body).to.be.jsonSchema(weatherSchema);\n});",
+              "err": {},
+              "uuid": "43101794-0f04-418b-878f-2a60668a341c",
+              "parentUUID": "a59b4156-66cc-4ccd-b9ad-2b4f579561fd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return weather data for query: 90.202.148.160",
+              "fullTitle": "Current Weather API Test should return weather data for query: 90.202.148.160",
+              "timedOut": null,
+              "duration": 56,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/current.json?q=${encodeURIComponent(query.q)}&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  expect(response.body).to.have.property('current');\n  expect(response.body).to.be.jsonSchema(weatherSchema);\n});",
+              "err": {},
+              "uuid": "b25e910c-f9bd-4274-bba5-09fbe1dd7799",
+              "parentUUID": "a59b4156-66cc-4ccd-b9ad-2b4f579561fd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return weather data for query: 51.26249, -1.08708",
+              "fullTitle": "Current Weather API Test should return weather data for query: 51.26249, -1.08708",
+              "timedOut": null,
+              "duration": 60,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/current.json?q=${encodeURIComponent(query.q)}&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  expect(response.body).to.have.property('current');\n  expect(response.body).to.be.jsonSchema(weatherSchema);\n});",
+              "err": {},
+              "uuid": "485d1a2c-7803-468e-974b-bb967a5316d1",
+              "parentUUID": "a59b4156-66cc-4ccd-b9ad-2b4f579561fd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return error for invalid location query",
+              "fullTitle": "Current Weather API Test should return error for invalid location query",
+              "timedOut": null,
+              "duration": 103,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/current.json?q=$£$dsd&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body).to.have.property('error');\n  expect(response.body.error.code).to.eq(1006);\n  expect(response.body.error.message).to.eq('No matching location found.');\n});",
+              "err": {},
+              "uuid": "6b2f1e55-6b4a-419b-b86a-78b832192708",
+              "parentUUID": "a59b4156-66cc-4ccd-b9ad-2b4f579561fd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eb8aae9c-2a73-43d3-a351-7aa567c8446b",
+            "860f276c-0d21-4f52-962e-c4477c0aa777",
+            "43101794-0f04-418b-878f-2a60668a341c",
+            "b25e910c-f9bd-4274-bba5-09fbe1dd7799",
+            "485d1a2c-7803-468e-974b-bb967a5316d1",
+            "6b2f1e55-6b4a-419b-b86a-78b832192708"
+          ],
+          "failures": [
+            "4e53b4ea-7a31-4604-81ac-1db3aff060f8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 994,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

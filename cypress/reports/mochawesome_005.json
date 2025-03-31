@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-31T12:25:42.146Z",
+    "end": "2025-03-31T12:25:42.639Z",
+    "duration": 493,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "680c09cb-012a-4512-8a7a-edab876761b3",
+      "title": "",
+      "fullFile": "cypress/e2e/weatherApi/timezoneWeather.cy.js",
+      "file": "cypress/e2e/weatherApi/timezoneWeather.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "93bdeda4-7123-4111-bc53-b5c844e9a8b5",
+          "title": "Timezone Weather API Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return correct timezone weather data with UK postcode SW1E5JL",
+              "fullTitle": "Timezone Weather API Test should return correct timezone weather data with UK postcode SW1E5JL",
+              "timedOut": null,
+              "duration": 72,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/timezone.json?q=SW1E5JL&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  const location = response.body.location;\n  expect(location.name).to.eq('London');\n  expect(location.region).to.eq('London');\n  expect(location.country).to.eq('UK');\n  expect(location.lat).to.eq(51.4970016479492);\n  expect(location.lon).to.eq(-0.137999996542931);\n  // expect(location.localtime_epoch).to.eq(1743410712);\n  expect(location.tz_id).to.eq('Europe/London');\n});",
+              "err": {},
+              "uuid": "71720f98-488e-4fa0-bd53-b83d98f19d01",
+              "parentUUID": "93bdeda4-7123-4111-bc53-b5c844e9a8b5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return correct timezone weather data with Canada postcode M5V2Z2",
+              "fullTitle": "Timezone Weather API Test should return correct timezone weather data with Canada postcode M5V2Z2",
+              "timedOut": null,
+              "duration": 57,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/timezone.json?q=M5V2Z2&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  const location = response.body.location;\n  expect(location.name).to.eq('Toronto');\n  expect(location.region).to.eq('');\n  expect(location.country).to.eq('Canada');\n  expect(location.lat).to.eq(43.6514015197754);\n  expect(location.lon).to.eq(-79.3825988769531);\n  // expect(location.localtime_epoch).to.eq(1743411334);\n  expect(location.tz_id).to.eq('America/Toronto');\n});",
+              "err": {},
+              "uuid": "0e66aa27-02d7-4260-a73f-a9162b124751",
+              "parentUUID": "93bdeda4-7123-4111-bc53-b5c844e9a8b5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return correct timezone weather data with US postcode 90045",
+              "fullTitle": "Timezone Weather API Test should return correct timezone weather data with US postcode 90045",
+              "timedOut": null,
+              "duration": 54,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/timezone.json?q=90045&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  const location = response.body.location;\n  expect(location.name).to.eq('Los Angeles');\n  expect(location.region).to.eq('California');\n  expect(location.country).to.eq('USA');\n  expect(location.lat).to.eq(33.9631004333496);\n  expect(location.lon).to.eq(-118.393997192383);\n  // expect(location.localtime_epoch).to.eq(1743411334);\n  expect(location.tz_id).to.eq('America/Los_Angeles');\n});",
+              "err": {},
+              "uuid": "77a2894a-a667-49af-99e3-c4ae1c0df1dc",
+              "parentUUID": "93bdeda4-7123-4111-bc53-b5c844e9a8b5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return weather data for query: basingstoke",
+              "fullTitle": "Timezone Weather API Test should return weather data for query: basingstoke",
+              "timedOut": null,
+              "duration": 50,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/timezone.json?q=${encodeURIComponent(query.q)}&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  const location = response.body.location;\n  expect(location.region).to.eq('Hampshire');\n  expect(location.country).to.eq('United Kingdom');\n  expect(location.tz_id).to.eq('Europe/London');\n});",
+              "err": {},
+              "uuid": "07f91028-10f1-44bf-869f-5cd44596294d",
+              "parentUUID": "93bdeda4-7123-4111-bc53-b5c844e9a8b5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return weather data for query: 90.202.148.160",
+              "fullTitle": "Timezone Weather API Test should return weather data for query: 90.202.148.160",
+              "timedOut": null,
+              "duration": 56,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/timezone.json?q=${encodeURIComponent(query.q)}&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  const location = response.body.location;\n  expect(location.region).to.eq('Hampshire');\n  expect(location.country).to.eq('United Kingdom');\n  expect(location.tz_id).to.eq('Europe/London');\n});",
+              "err": {},
+              "uuid": "8a9537e3-a0ba-4dd8-9e63-98882c00a5d5",
+              "parentUUID": "93bdeda4-7123-4111-bc53-b5c844e9a8b5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return weather data for query: 51.26249, -1.08708",
+              "fullTitle": "Timezone Weather API Test should return weather data for query: 51.26249, -1.08708",
+              "timedOut": null,
+              "duration": 44,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/timezone.json?q=${encodeURIComponent(query.q)}&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property('location');\n  const location = response.body.location;\n  expect(location.region).to.eq('Hampshire');\n  expect(location.country).to.eq('United Kingdom');\n  expect(location.tz_id).to.eq('Europe/London');\n});",
+              "err": {},
+              "uuid": "94e6d1aa-7bc1-4e35-bf8e-d1fdf643d266",
+              "parentUUID": "93bdeda4-7123-4111-bc53-b5c844e9a8b5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return error for invalid location query",
+              "fullTitle": "Timezone Weather API Test should return error for invalid location query",
+              "timedOut": null,
+              "duration": 56,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://api.weatherapi.com/v1/timezone.json?q=324234&key=${weatherApiToken}`,\n  headers: {\n    accept: 'application/json'\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400);\n  expect(response.body).to.have.property('error');\n  expect(response.body.error.code).to.eq(1006);\n  expect(response.body.error.message).to.eq('No matching location found.');\n});",
+              "err": {},
+              "uuid": "34a26f14-d6a9-44f5-889e-0b756d1c56b1",
+              "parentUUID": "93bdeda4-7123-4111-bc53-b5c844e9a8b5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "71720f98-488e-4fa0-bd53-b83d98f19d01",
+            "0e66aa27-02d7-4260-a73f-a9162b124751",
+            "77a2894a-a667-49af-99e3-c4ae1c0df1dc",
+            "07f91028-10f1-44bf-869f-5cd44596294d",
+            "8a9537e3-a0ba-4dd8-9e63-98882c00a5d5",
+            "94e6d1aa-7bc1-4e35-bf8e-d1fdf643d266",
+            "34a26f14-d6a9-44f5-889e-0b756d1c56b1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 389,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

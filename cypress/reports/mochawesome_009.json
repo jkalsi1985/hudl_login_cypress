@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-31T13:06:20.696Z",
+    "end": "2025-03-31T13:06:25.350Z",
+    "duration": 4654,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4e07c67e-50e1-4d23-87c1-aca22ce1fc42",
+      "title": "",
+      "fullFile": "cypress/e2e/saucedemo.cy.js",
+      "file": "cypress/e2e/saucedemo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c997f72-78aa-44a7-b4e5-e4467d58e03f",
+          "title": "Sauce Lab E2E Flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "login succcessfully without remember me ticked",
+              "fullTitle": "Sauce Lab E2E Flow login succcessfully without remember me ticked",
+              "timedOut": null,
+              "duration": 1343,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.loginSuccessfullyIntoSauceLab(username, password);\ncy.url().should(\"contain\", \"https://www.saucedemo.com/inventory.html\");",
+              "err": {},
+              "uuid": "74a7efff-6976-433d-b73b-55cfd8e7d627",
+              "parentUUID": "9c997f72-78aa-44a7-b4e5-e4467d58e03f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "add sauce labs backpack to the shopping cart successfully",
+              "fullTitle": "Sauce Lab E2E Flow add sauce labs backpack to the shopping cart successfully",
+              "timedOut": null,
+              "duration": 1200,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login successfully\ncy.loginSuccessfullyIntoSauceLab(username, password);\ncy.url().should(\"contain\", \"https://www.saucedemo.com/inventory.html\");\n// Add Sauce Labs Backpack to shopping cart\ncy.addSauceLabBackPackToShoppingCart();\ncy.get(_pageObjects.productList.inventoryItemPrice).should('be.visible').and('contain', '$29.99');\ncy.get(_pageObjects.productList.addToCartButton).should(\"not.exist\");\ncy.get(_pageObjects.productList.removeSauceLabBackPackButton).should(\"be.visible\");\n// View the shopping cart\ncy.clickToViewShoppingCart();\ncy.get(_pageObjects.productList.inventoryItemName).should(\"contain\", \"Sauce Labs Backpack\");\ncy.get('.inventory_item_price').should('be.visible').then($price => {\n  const priceText = $price.text();\n  try {\n    expect(priceText).to.include('$');\n    const priceValue = parseFloat(priceText.replace('$', ''));\n    expect(priceValue).to.be.lessThan(50);\n  } catch (error) {\n    cy.log('Price validation failed: ' + error.message);\n    throw error;\n  }\n});\ncy.get(_pageObjects.shoppingCart.checkoutButton).should(\"be.visible\");\ncy.get(_pageObjects.shoppingCart.removeButton).should(\"be.visible\");\ncy.get(_pageObjects.shoppingCart.continueButton).should(\"be.visible\");",
+              "err": {},
+              "uuid": "cfab34f7-09b7-45d6-8a6c-f6fe194fc3f1",
+              "parentUUID": "9c997f72-78aa-44a7-b4e5-e4467d58e03f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "74a7efff-6976-433d-b73b-55cfd8e7d627",
+            "cfab34f7-09b7-45d6-8a6c-f6fe194fc3f1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2543,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
